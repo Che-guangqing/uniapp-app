@@ -1,0 +1,84 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"app-plus": {
+					"scrollIndicator":"none",  //隐藏滚动条
+					"bounce":"none",  //取消回弹效果
+					// 配置导航栏
+					"titleNView": {
+						// 搜索框配置
+						"searchInput": {
+							"align":"center", //居中
+							"backgroundColor":"#f7f7f7",
+							"borderRadius":"4px",
+							"placeholder":"搜索糗事",
+							"placeholderColor":"#cccccc",
+							"disabled":true  //禁止输入文本
+						},			
+						//配置按钮
+						"buttons":[{
+							//left
+							"color":"#ff9619",
+							"colorPressed":"#bbb",
+							"float":"left",
+							"fontSize":"22px",
+							"fontSrc":"/static/icon/iconfont.ttf",  //本地图标地址
+							"text":"\ue650" //具体图标unicode  注意以\u开头
+							
+						},{
+							// right
+							"color":"#000000",
+							"colorPressed":"#bbb",
+							"float":"right",
+							"fontSize":"22px",
+							"fontSrc":"/static/icon/iconfont.ttf",
+							"text":"\ue608"
+						}]
+					}
+				}
+			}
+		}
+	    ,{
+            "path" : "pages/action/action",
+            "style" : {}
+        },{
+            "path" : "pages/paper/paper",
+            "style" : {}
+        },{
+            "path" : "pages/my/my",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "white",
+		"backgroundColor": "white"
+	},
+	"tabBar": {
+		"color":"#999999",
+		"selectedColor":"#FFF68F",
+		"list": [{
+			"pagePath":"pages/index/index",
+			"iconPath":"static/iconfont/home.png",
+			"selectedIconPath":"static/iconfont/home-select.png",
+			"text":"首页"
+		},{
+			"pagePath":"pages/action/action",
+			"iconPath":"static/iconfont/action.png",
+			"selectedIconPath":"static/iconfont/action-select.png",
+			"text":"动态"
+		},{
+			"pagePath":"pages/paper/paper",
+			"iconPath":"static/iconfont/paper.png",
+			"selectedIconPath":"static/iconfont/paper-select.png",
+			"text":"小纸条"
+		},{
+			"pagePath":"pages/my/my",
+			"iconPath":"static/iconfont/my.png",
+			"selectedIconPath":"static/iconfont/my-select.png",
+			"text":"我的"
+		}]
+	}
+}
