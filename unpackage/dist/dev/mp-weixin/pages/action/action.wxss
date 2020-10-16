@@ -1,0 +1,39 @@
+
+.icon-qiandaoicon{
+	color: #ff9619;
+	font-size: 45rpx;
+	margin-left: 20rpx;
+}
+.icon-bi{
+	margin-right: 20rpx;
+}
+.nav-bar{
+	height: 80rpx;
+	border-bottom: 5rpx solid #EEEEEE ;
+	width: 100%;
+	margin: 0 auto;		
+	position: fixed;
+	z-index: 1;
+	background-color: #FFFFFF;
+}
+.uni-textarea{
+	border: 1rpx solid #EEEEEE
+}
+.tab-warp{
+	width: 70rpx;
+}
+.item{
+	color: #929292;
+}
+.item-active{
+	color: #000000;
+}
+.active{
+	width: 55rpx;
+	height: 8rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
+	background-color: #fede33;
+	margin-top: -5rpx;
+}
+

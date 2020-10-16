@@ -110,7 +110,7 @@
 
 <style scoped>
 	/* 封装flex布局 */
-	.u-f,
+/* 	.u-f,
 	.u-f-ac,
 	.u-f-jsb-ac,
 	.u-f-jsc-ac {
@@ -129,7 +129,7 @@
 
 	.u-f-jsc-ac {
 		justify-content: center;
-	}
+	} */
 
 	.index-list {
 		padding: 20upx;

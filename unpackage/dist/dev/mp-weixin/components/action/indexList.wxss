@@ -1,0 +1,107 @@
+
+.index-list.data-v-04d84c9c {
+		/* display: flex; */
+		padding: 20rpx;
+		border-bottom: 1rpx solid #eee;
+}
+.list-left.data-v-04d84c9c{
+		width: 100rpx;
+}
+.list-right.data-v-04d84c9c{
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		        flex: 1;
+}
+.left.data-v-04d84c9c {
+		color: #999999;
+}
+.head.data-v-04d84c9c {
+		width: 90rpx;
+		height: 90rpx;
+		-webkit-border-radius: 50%;
+		        border-radius: 50%;
+		/* border: 1px solid #929292; */
+		margin-right: 20rpx;
+}
+.blue-icon.data-v-04d84c9c{
+		width: 72rpx;
+		height: 32rpx;
+		line-height: 32rpx;
+		text-align: center;
+		background-color: #0A98D5;
+		-webkit-border-radius: 25rpx;
+		        border-radius: 25rpx;
+		margin-left: 20rpx;
+		color: #FFFFFF;
+		font-size: 12rpx;
+}
+.follow.data-v-04d84c9c {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		        align-items: center;
+		padding: 5rpx 10rpx;
+		width: 90rpx;
+		height: 40rpx;
+		background-color: #f4f4f4;
+		-webkit-border-radius: 5rpx;
+		        border-radius: 5rpx;
+		margin-right: 15rpx;
+		font-size: 20rpx;
+}
+.sex.data-v-04d84c9c{
+		font-size: 6rpx;
+		margin-right: 5rpx;
+}
+.row-2.data-v-04d84c9c {
+		font-size: 35rpx;
+		padding-top: 15rpx;
+}
+.row-3.data-v-04d84c9c {
+		padding-top: 15rpx;
+		position: relative;
+}
+.video-warp.data-v-04d84c9c {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+}
+.play-info.data-v-04d84c9c {
+		position: absolute;
+		right: 10rpx;
+		bottom: 10rpx;
+		font-size: 25rpx;
+		background: rgba(51, 51, 51, 0.72);
+		color: #FFFFFF;
+		padding: 3rpx 10rpx;
+		-webkit-border-radius: 20rpx;
+		        border-radius: 20rpx;
+}
+.video.data-v-04d84c9c {
+		position: absolute;
+		color: #FFFFFF;
+		font-size: 100rpx;
+}
+.content-img.data-v-04d84c9c {
+		width: 100%;
+		height: 400rpx;
+		-webkit-border-radius: 20rpx;
+		        border-radius: 20rpx;
+}
+.row-4.data-v-04d84c9c {
+		color: #999999;
+}
+.address.data-v-04d84c9c{
+		font-size: 25rpx;
+}
+.active.data-v-04d84c9c {
+		color: #c5f68c;
+}
+.b-left.data-v-04d84c9c {
+		margin: 0 18rpx
+}
+

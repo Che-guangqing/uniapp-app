@@ -1,13 +1,47 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/my/my"
+    "pages/action/action",
+    "pages/paper/paper",
+    "pages/my/my",
+    "pages/search/search",
+    "pages/addInput/addInput"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "white",
     "backgroundColor": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FFF68F",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/iconfont/home.png",
+        "selectedIconPath": "static/iconfont/home-select.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/action/action",
+        "iconPath": "static/iconfont/action.png",
+        "selectedIconPath": "static/iconfont/action-select.png",
+        "text": "动态"
+      },
+      {
+        "pagePath": "pages/paper/paper",
+        "iconPath": "static/iconfont/paper.png",
+        "selectedIconPath": "static/iconfont/paper-select.png",
+        "text": "小纸条"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "static/iconfont/my.png",
+        "selectedIconPath": "static/iconfont/my-select.png",
+        "text": "我的"
+      }
+    ]
   },
   "usingComponents": {}
 }

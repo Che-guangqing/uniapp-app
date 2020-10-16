@@ -1,0 +1,21 @@
+	/* 封装flex布局 */
+	.u-f,
+	.u-f-ac,
+	.u-f-jsb-ac,
+	.u-f-jsc-ac {
+		display: flex;
+	}
+
+	.u-f-ac,
+	.u-f-jsb-ac,
+	.u-f-jsc-ac {
+		align-items: center;
+	}
+
+	.u-f-jsb-ac {
+		justify-content: space-between;
+	}
+
+	.u-f-jsc-ac {
+		justify-content: center;
+	}

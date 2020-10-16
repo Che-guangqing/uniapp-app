@@ -1,0 +1,13 @@
+
+.nav-bar.data-v-0d95d4a6{
+	height: 100rpx;
+	border-bottom: 5rpx solid #EEEEEE ;
+	width: 95%;
+	margin: 0 auto;
+}
+.uni-textarea.data-v-0d95d4a6{
+	border: 1rpx solid #EEEEEE
+}
+
+
+

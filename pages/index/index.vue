@@ -76,7 +76,7 @@
 								isGuanzhu: false,
 								title: '我是标题，我在关注项',
 								type: 'img', //img:图片类型， videoL:视频类型
-								titlePic: '../../static/img/bg.jpg',
+								titlePic: '../../static/img/bg4.jpg',
 								infoNum: {
 									index: 1, //0：没有操作，1：顶过，2：踩过
 									dingNum: 181,
@@ -86,12 +86,12 @@
 								shareNum: 132
 							},
 							{
-								userHead: '../../static/img/head.jpg',
+								userHead: '../../static/img/head2.jpeg',
 								userName: '昵称',
 								isGuanzhu: true,
 								title: '我是标题',
 								type: 'video', //img:图片类型， videoL:视频类型
-								titlePic: '../../static/img/bg.jpg',
+								titlePic: '../../static/img/bg3.jpg',
 								playNum: 2000,
 								long: '2:47',
 								infoNum: {
@@ -109,12 +109,12 @@
 						list: [
 
 							{
-								userHead: '../../static/img/head.jpg',
+								userHead: '../../static/img/head3.jpg',
 								userName: '昵称',
 								isGuanzhu: false,
 								title: '我是标题，我在推荐项',
 								type: 'img', //img:图片类型， videoL:视频类型
-								titlePic: '../../static/img/bg.jpg',
+								titlePic: '../../static/img/bg3.jpg',
 								infoNum: {
 									index: 0, //0：没有操作，1：顶过，2：踩过
 									dingNum: 181,
@@ -124,12 +124,12 @@
 								shareNum: 132
 							},
 							{
-								userHead: '../../static/img/head.jpg',
+								userHead: '../../static/img/head4.jpeg',
 								userName: '昵称',
 								isGuanzhu: true,
 								title: '我是标题',
 								type: 'video', //img:图片类型， videoL:视频类型
-								titlePic: '../../static/img/bg.jpg',
+								titlePic: '../../static/img/bg1.jpg',
 								playNum: 2000,
 								long: '2:47',
 								infoNum: {
@@ -150,7 +150,7 @@
 								isGuanzhu: false,
 								title: '我是标题，我在体育项',
 								type: 'img', //img:图片类型， videoL:视频类型
-								titlePic: '../../static/img/bg.jpg',
+								titlePic: '../../static/img/bg4.jpg',
 								infoNum: {
 									index: 1, //0：没有操作，1：顶过，2：踩过
 									dingNum: 181,
@@ -165,7 +165,7 @@
 								isGuanzhu: true,
 								title: '我是标题',
 								type: 'video', //img:图片类型， videoL:视频类型
-								titlePic: '../../static/img/bg.jpg',
+								titlePic: '../../static/img/bg1.jpg',
 								playNum: 2000,
 								long: '2:47',
 								infoNum: {
@@ -224,7 +224,7 @@
 				setTimeout(() => {
 					// 获取完成
 					let obj = {
-						userHead: '../../static/img/head.jpg',
+						userHead: '../../static/img/head1.jpg',
 						userName: '昵称',
 						isGuanzhu: true,
 						title: '我是标题',
@@ -259,6 +259,27 @@
 				}
 			});
 		},
+		// 监听搜索框点击事件
+		onNavigationBarSearchInputClicked() {
+			// console.log('打开搜索页')
+			uni.navigateTo({
+				url: '../search/search'
+			})
+		},
+		// 监听原生标题栏按钮点击事件，参数为Object
+		onNavigationBarButtonTap(e) {
+			switch (e.index) {
+				case 1:
+					// 发布按钮的index为1
+					uni.navigateTo({
+						url: '../addInput/addInput'
+					})
+					break;
+				case value:
+					break;
+			}
+			console.log(JSON.stringify(e.index))
+		},
 	}
 </script>
 
@@ -282,7 +303,4 @@
 		/* #endif */
 		width: 750rpx;
 	}
-
-	
-	
 </style>
