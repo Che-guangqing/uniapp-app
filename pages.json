@@ -45,7 +45,8 @@
             "style" : {
 				// 自定义导航
 				"app-plus":{
-					"titleNView":false //禁止原生导航
+					"titleNView":false ,//禁止原生导航
+					"bounce":"none"  //取消回弹效果
 				}
 			}
         },{
@@ -91,6 +92,30 @@
 				// 自定义导航
 				"app-plus":{
 					"titleNView":false //禁止原生导航
+				}
+			}
+        }
+        ,{
+            "path" : "pages/topicNav/topicNav",
+            "style" : {
+				"navigationBarTitleText":"话题分类",
+				"app-plus":{
+					"bounce":"none"
+				}
+			}
+        },{
+            "path" : "pages/topicDetail/topicDetail",
+            "style" : {
+				"app-plus":{
+					"scrollIndicator":"none", //不显示滚动条
+					"titleNView":{
+						"type":"transparent", // 透明渐变
+						"buttons":[
+							{
+								"type":"menu"
+							}
+						]
+					}
 				}
 			}
         }

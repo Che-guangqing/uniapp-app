@@ -24,14 +24,14 @@
 				{{item.title}}
 			</view>
 			<view class="row-3 u-f-jsc-ac" @click="openDetail">
-				<!-- 第一种样式为图片视频模式 -->
+				<!-- 图片模式 -->
 				<image v-if="item.titlePic" class="content-img" :src="item.titlePic" mode=""></image>
-				<!-- 视频及播放按钮 -->
+				<!-- 视频模式 -->
  				<view class="video-warp u-f-jsc-ac" v-if="item.video">
 					<view class="video icon iconfont icon-iconset0481"></view>
 					<view class="play-info ">{{item.video.playNum}}W次播放 {{item.video.long}}</view>
 				</view>
-				<!-- 第二种样式为分享模式 -->
+				<!-- 分享模式 -->
 				<view class="common-list-share u-f-ac" v-if="item.share">
 					<image class="share-img" :src="item.share.sharepic" mode="widthFix" lazy-load></image>
 					<view >{{item.share.title}}，</view>

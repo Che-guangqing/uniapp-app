@@ -17,12 +17,45 @@
 		<view style="width: 100%;height: 80rpx;"></view>
 		<!-- 内容 -->
 		<view class="action-content">
-			<!-- 主页图文列表 -->
-			<block v-for="(item,index1) in list" :key='index1'>
-				<common-list :item='item' :index='index'></common-list>
-			</block>
-			<!-- 上拉加载 -->
-			<!-- <load-more :loadText="item.loadText"></load-more> -->
+			<swiper class="swiper-box" :style="{height:swiperHeight+'px'}" :current='tabIndex' @change="tabChange">
+				<!-- 关注 -->
+				<swiper-item class="swiper-item">
+					<scroll-view class="scroll-v list" scroll-y @scrolltolower="loadMore()">
+						<!-- 主页图文列表 -->
+						<block v-for="(item,index1) in guanzhu.list" :key='index1'>
+							<common-list :item='item' :index='index'></common-list>
+						</block>
+						<!-- 上拉加载 -->
+						<load-more :loadText="guanzhu.loadText"></load-more>
+					</scroll-view>
+				</swiper-item>
+				<!-- 话题 -->
+				<swiper-item class="swiper-item">
+					<scroll-view class="scroll-v list" scroll-y >
+						<!-- 搜索框 -->
+						<view class="search-input">
+							<input class="uni-input" placeholder-class="uni-page-head-search-placeholder topic-search" placeholder="搜索内容"/>
+						</view>
+						<!-- 轮播图 -->
+						<swiper class="topic-swiper" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+							<block v-for="(item,index) in topic.swiper" :key="index">
+								<swiper-item>
+									<image  :src="item.src" mode=""></image>
+								</swiper-item>
+							</block>
+						</swiper>
+						<!-- 热门分类 -->
+						<top-nav :nav="topic.nav"></top-nav>
+						<!-- 最近更新 -->
+						<view class="topic-new">
+							<view >最近更新</view>
+							<block v-for="(item,index) in topic.list" :key="index">
+								<topic-list :item="item" :index="index"></topic-list>
+							</block>
+						</view>
+					</scroll-view>
+				</swiper-item>
+			</swiper>
 		</view>
 	</view>
 </template>
@@ -30,68 +63,140 @@
 <script>
 	import commonList from '../../components/common/commonList.vue'
 	import loadMore from '../../components/common/loadMore.vue' //上拉加载更多
+	import topNav from '../../components/action/topicNav.vue'
+	import topicList from '../../components/action/topicList.vue'
 	export default {
 		components:{
 			commonList,
-			loadMore
+			loadMore,
+			topNav,
+			topicList
+		},
+		onLoad() {
+			uni.getSystemInfo({
+				success: (res) => {
+					// 得到可展示的高度
+					let height = res.windowHeight - uni.upx2px(100)
+					this.swiperHeight = height
+					// console.log(res.screenHeight); //屏幕高度
+					// console.log(res.windowHeight); //窗口高度
+					// console.log(height)
+				}
+			});
 		},
 		data() {
 			return {
+				swiperHeight: 500, //可展示y方向滚动的区域的高度
 				tabItem: [
 					{name:'关注',id:'guanzhu'},
 					{name:'话题',id:'huati'}
 				],
 				tabIndex:0,
-				list:[{ 
-					userHead: '../../static/img/head4.jpeg',
-					userName: '昵称',
-					sex:'男',
-					age:25,
-					address:'陕西 西安',
-					isGuanzhu: false,
-					title: '我是标题,略略略',
-					titlePic: '../../static/img/bg1.jpg',
-					dianzan: 181,
-					commentNum: 130,
-					shareNum: 132,
-					video:false,
-					share:false
-				},{
-					userHead: '../../static/img/head1.jpg',
-					userName: '昵称',
-					sex:'女',
-					age:25,
-					address:'陕西 西安',
-					isGuanzhu: false,
-					title: '我是标题,略略略',
-					titlePic: '../../static/img/bg.jpg',
-					dianzan: 181,
-					video:{
-						playNum:2000,
-						long:'13:26'
-					},
-					share:false,
-					commentNum: 130,
-					shareNum: 132,
-				},{ //分享
-					userHead: '../../static/img/head1.jpg',
-					userName: '昵称',
-					sex:'女',
-					age:25,
-					address:'陕西 西安',
-					isGuanzhu: false,
-					title: '我是标题,略略略',
-					// type: 'img', //img:图片类型， video:视频类型
-					video:false,
-					share:{
-					    title:"我是分享的标题",
-						sharepic: "../../static/img/share1.gif"
-					},
-					titlePic: '',
-					dianzan: 181,
-					commentNum: 130,
-					shareNum: 132,
-				}]
+				guanzhu: {
+					loadText: '上拉加载更多',
+					list:[{ //分享
+						userHead: '../../static/img/head1.jpg',
+						userName: '昵称',
+						sex:'女',
+						age:25,
+						address:'陕西 西安',
+						isGuanzhu: false,
+						title: '我是标题,略略略',
+						// type: 'img', //img:图片类型， video:视频类型
+						video:false,
+						share:{
+						    title:"我是分享的标题",
+							sharepic: "../../static/img/share1.gif"
+						},
+						titlePic: '',
+						dianzan: 181,
+						commentNum: 130,
+						shareNum: 132,
+					},{
+						userHead: '../../static/img/head4.jpeg',
+						userName: '昵称',
+						sex:'男',
+						age:25,
+						address:'陕西 西安',
+						isGuanzhu: false,
+						title: '我是标题,略略略',
+						titlePic: '../../static/img/bg1.jpg',
+						dianzan: 181,
+						commentNum: 130,
+						shareNum: 132,
+						video:false,
+						share:false
+					},{
+						userHead: '../../static/img/head1.jpg',
+						userName: '昵称',
+						sex:'女',
+						age:25,
+						address:'陕西 西安',
+						isGuanzhu: false,
+						title: '我是标题,略略略',
+						titlePic: '../../static/img/bg.jpg',
+						dianzan: 181,
+						video:{
+							playNum:2000,
+							long:'13:26'
+						},
+						share:false,
+						commentNum: 130,
+						shareNum: 132,
+					}]
+				},
+				topic: {
+					swiper: [
+						{src: '../../static/img/bg4.jpg'},
+						{src: '../../static/img/bg3.jpg'},
+						{src: '../../static/img/bg1.jpg'}
+					],
+					nav: [
+						{name:'最新'},
+						{name:'游戏'},
+						{name:'打卡'},
+						{name:'情感'},
+						{name:'故事'},
+						{name:'喜爱'},
+					],
+					list: [
+						{
+							titlePic:"../../static/img/share.gif",
+							title:'话题名称',
+							desc:'话题描述',
+							totalNum:50,
+							todayNum:10
+						},
+						{
+							titlePic:"../../static/img/share1.gif",
+							title:'话题名称',
+							desc:'话题描述',
+							totalNum:50,
+							todayNum:10
+						},
+						{
+							titlePic:"../../static/img/share.gif",
+							title:'话题名称',
+							desc:'话题描述',
+							totalNum:50,
+							todayNum:10
+						},{
+							titlePic:"../../static/img/share.gif",
+							title:'话题名称',
+							desc:'话题描述',
+							totalNum:50,
+							todayNum:10
+						},
+						{
+							titlePic:"../../static/img/share1.gif",
+							title:'话题名称',
+							desc:'话题描述',
+							totalNum:50,
+							todayNum:10
+						}
+					]
+				}
+				
 			}
 		},
 		methods: {
@@ -104,39 +209,42 @@
 				this.tabIndex = index
 				console.log(index)
 			},
+			// 触底事件
 			loadMore(index) {
-				if (this.newsList[index].loadText != '上拉加载更多') {
+				if (this.guanzhu.loadText != '上拉加载更多') {
 					return
 				}
 				// 修改数据
-				this.newsList[index].loadText = '加载中...'
+				this.guanzhu.loadText = '加载中...'
 				// 获取数据
 				setTimeout(() => {
 					// 获取完成
 					let obj = {
-						userHead: '../../static/img/head.jpg',
+						userHead: '../../static/img/head4.jpeg',
 						userName: '昵称',
-						isGuanzhu: true,
-						title: '我是标题',
-						type: 'video', //img:图片类型， videoL:视频类型
-						titlePic: '../../static/img/bg.jpg',
-						playNum: 2000,
-						long: '2:47',
-						infoNum: {
-							index: 2, //0：没有操作，1：顶过，2：踩过
-							dingNum: 111,
-							caiNum: 180
-						},
-						commentNum: 100,
-						shareNum: 132
+						sex:'男',
+						age:25,
+						address:'陕西 西安',
+						isGuanzhu: false,
+						title: '我是标题,略略略',
+						titlePic: '../../static/img/bg1.jpg',
+						dianzan: 181,
+						commentNum: 130,
+						shareNum: 132,
+						video:false,
+						share:false
 					}
-					this.newsList[index].list.push(obj)
-					this.newsList[index].loadText = '上拉加载更多'
+					this.guanzhu.list.push(obj)
+					this.guanzhu.loadText = '上拉加载更多'
 				}, 800)
-				// this.newsList[index].loadText='没有数据啦'
+				// this.guanzhu.loadText='没有数据啦'
 				// 注意： 触底事件失效：scroll-view必须设置高度
+			},
+			// swiper滑动改变tabbar
+			tabChange(e) {
+				this.tabIndex = e.detail.current
+				// console.log(e.detail.current)
 			}
-			
 		}
 	}
 </script>
@@ -177,5 +285,55 @@
 		border-radius: 10rpx;
 		background-color: #fede33;
 		margin-top: -5rpx;
+	}
+	/* swiper */
+	.swiper-box {
+		/* height: 700upx; */
+	}
+
+	.swiper-item {
+		width: 100%;
+		flex-direction: row;
+		overflow: auto;
+	}
+
+	.scroll-v {
+		width: 100%;
+		height: 100%;
+		/* #ifndef MP-ALIPAY */
+		flex-direction: column;
+		/* #endif */
+		width: 750rpx;
+	}
+	/* 搜索框 */
+	.search-input{
+		padding: 20rpx;
+		margin-top: 2px;
+	}
+	.uni-input{
+		background-color: #F4F4F4;
+		border-radius: 15rpx;
+	}
+	.topic-search{
+		display: flex;
+		justify-content: center;
+		font-size: 28rpx;
+	}
+	/* 轮播图 */
+	.topic-swiper{
+		padding: 0 20rpx 20rpx 20rpx;
+	}
+	.topic-swiper image{
+		width: 100%;
+		border-radius: 10rpx;
+	}
+	/* 最近更新 */
+	.topic-new {
+		padding: 20rpx;
+	}
+	
+	.topic-new>view:first-child {
+		padding-bottom: 10rpx;
+		font-size: 32rpx;
 	}
 </style>
