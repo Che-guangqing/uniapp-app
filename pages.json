@@ -51,7 +51,34 @@
 			}
         },{
             "path" : "pages/paper/paper",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "小纸条",
+				"enablePullDownRefresh":true, //开启下拉刷新
+				"app-plus":{
+					"titleNView": {
+						"buttons":[
+							{
+								//left
+								"color":"#000000",
+								"colorPressed":"#bbb",
+								"float":"left",
+								"fontSize":"22px",
+								"fontSrc":"/static/icon/iconfont.ttf",  //本地图标地址
+								"text":"\ue69f" //具体图标unicode  注意以\u开头
+								
+							},{
+								// right
+								"color":"#000000",
+								"colorPressed":"#bbb",
+								"float":"right",
+								"fontSize":"22px",
+								"fontSrc":"/static/icon/iconfont.ttf",
+								"text":"\ue6a0"
+							}
+						]
+					}
+				}
+			}
         },{
             "path" : "pages/my/my",
             "style" : {}
@@ -106,6 +133,7 @@
         },{
             "path" : "pages/topicDetail/topicDetail",
             "style" : {
+				"enablePullDownRefresh":true, // 开启下拉刷新
 				"app-plus":{
 					"scrollIndicator":"none", //不显示滚动条
 					"titleNView":{
@@ -119,9 +147,41 @@
 				}
 			}
         }
+        ,{
+            "path" : "pages/userList/userList",
+			"style": {
+				"app-plus": {
+					"animationType":"slide-in-left", //进场动画
+					"scrollIndicator":"none",  //隐藏滚动条
+					"bounce":"none",  //取消回弹效果
+					// 配置导航栏
+					"titleNView": {
+						"autoBackButton":false, //取消原来的返回按钮
+						// 搜索框配置
+						"searchInput": {
+							"align":"left", 
+							"backgroundColor":"#f7f7f7",
+							"borderRadius":"4px",
+							"placeholder":"搜索糗事",
+							"placeholderColor":"#cccccc",
+							"disabled":false  //输入文本
+						},			
+						//配置按钮
+						"buttons":[{
+							// right
+							"color":"#000000",
+							"colorPressed":"#bbb",
+							"float":"right",
+							"fontSize":"16px",
+							"text":"取消"
+						}]
+					}
+				}
+			}
+        }
     ],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "white",
 		"backgroundColor": "white"
 	},

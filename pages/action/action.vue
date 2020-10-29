@@ -249,7 +249,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.icon-qiandaoicon{
 		color: #ff9619;
 		font-size: 45upx;

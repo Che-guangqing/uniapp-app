@@ -25,7 +25,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	/* 最近更新 */
 /* 	.topic-new {
 		padding: 20rpx;

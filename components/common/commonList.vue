@@ -6,11 +6,12 @@
 		<view class="list-right">
 			<view class="row-1 u-f-jsb-ac">
 				<view class="left u-f-ac">
-					{{item.userName}}
-					<view class="blue-icon u-f-jsc-ac">
+					<view class="name">{{item.userName}}</view>
+					<tag-sex :sex="item.sex" :age="item.age"></tag-sex>
+<!-- 					<view class="icon-warp u-f-jsc-ac" :class="{'blue-icon':item.sex==='男','red-icon':item.sex==='女'}">
 						<view :class="{'sex':true,'icon iconfont icon-nan':item.sex==='男','icon iconfont icon-nv':item.sex==='女'}"></view>
 						{{item.age}}
-					</view>
+					</view> -->
 				</view>
 				<view class="right u-f-ac" v-show="!item.isGuanzhu">
 					<view class="follow" @tap="onFollow">
@@ -55,7 +56,11 @@
 </template>
 
 <script>
+	import tagSex from './tagSex.vue'
 	export default {
+		components:{
+			tagSex
+		},
 		props: {
 			item: Object,
 			index: Number
@@ -133,7 +138,9 @@
 	.left {
 		color: #999999;
 	}
-
+	.name{
+		margin-right: 20rpx;
+	}
 	.head {
 		width: 90upx;
 		height: 90upx;
@@ -141,17 +148,26 @@
 		/* border: 1px solid #929292; */
 		margin-right: 20upx;
 	}
-	.blue-icon{
+/* 	.icon-warp{
 		width: 72rpx;
 		height: 32rpx;
 		line-height: 32rpx;
 		text-align: center;
-		background-color: #0A98D5;
 		border-radius: 25rpx;
 		margin-left: 20rpx;
 		color: #FFFFFF;
 		font-size: 12rpx;
 	}
+	.sex{
+		font-size: 6rpx;
+		margin-right: 5rpx;
+	}
+	.blue-icon{
+		background-color: #0A98D5;	
+	}
+	.red-icon{
+		background-color:#DD4A68;	
+	} */
 	.follow {
 		display: flex;
 		align-items: center;
@@ -162,10 +178,6 @@
 		border-radius: 5upx;
 		margin-right: 15upx;
 		font-size: 20upx;
-	}
-    .sex{
-		font-size: 6rpx;
-		margin-right: 5rpx;
 	}
 	.row-2 {
 		font-size: 35upx;

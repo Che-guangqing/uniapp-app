@@ -32,7 +32,7 @@
 	import indexList from '../../components/index/indexList.vue' //图文列表
 	import swiperTabHead from '../../components/index/swiperTabHead.vue' //tabbar
 	import loadMore from '../../components/common/loadMore.vue' //上拉加载更多
-	import noThing from '../../components/common/noThing.vue' //上拉加载更多
+	import noThing from '../../components/common/noThing.vue' 
 	export default {
 		components: {
 			indexList,
@@ -283,7 +283,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	/* swiper */
 	.swiper-box {
 		/* height: 700upx; */

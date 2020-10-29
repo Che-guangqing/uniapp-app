@@ -29,7 +29,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	/* 热门分类 */
 	.topic-nav{
 		border-top: 1rpx solid #EEEEEE;

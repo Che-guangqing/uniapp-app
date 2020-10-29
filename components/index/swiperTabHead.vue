@@ -1,10 +1,10 @@
 <template>
 	<view class="">
-		<view class="tabs">
-			<scroll-view scroll-x class="scroll-h">
+		<view class="tabs" :style="scrollStyle">
+			<scroll-view scroll-x class="scroll-h" >
 				<block v-for="(tab,index) in tabBars" :key="tab.id">
-					<view class="uni-tab-item" @tap="ontabtap(index)">
-						<text class="uni-tab-item-title" :class="tabIndex==index ? 'uni-tab-item-title-active' : ''">{{tab.name}}</text>
+					<view class="uni-tab-item" @tap="ontabtap(index)" :style="scrollItemStyle">
+						<text class="uni-tab-item-title" :class="tabIndex==index ? 'uni-tab-item-title-active' : ''" >{{tab.name}} {{tab.num?tab.num:''}}</text>
 						<view :class="tabIndex==index ? 'swiper-tab-line' : ''"></view>
 					</view>
 				</block>
@@ -17,7 +17,15 @@
 	export default {
 		props:{
 			tabBars:Array,
-			tabIndex:Number
+			tabIndex:Number,
+			scrollStyle: {
+				type: String,
+				default: ""
+			},
+			scrollItemStyle: {
+				type: String,
+				default: ""
+			}
 		},
 		methods:{
 			// tabbar点击切换事件
@@ -62,8 +70,11 @@
 		display: inline-block;
 		/* #endif */
 		flex-wrap: nowrap;
-		padding-left: 34rpx;
-		padding-right: 34rpx;
+	/* 	padding-left: 34rpx;
+		padding-right: 34rpx; */
+		height: 80rpx;
+		width: 150rpx;
+		text-align: center;
 	}
 	
 	.uni-tab-item-title {
@@ -88,7 +99,8 @@
 		width: 60upx;
 		margin: auto;
 		border-radius: 20upx;
-		transform: translateY(-20upx);
+		text-align: center;
+		margin-top: -8px;
 	}
 	
 </style>
