@@ -1,4 +1,5 @@
 <template>
+	<!-- 主页点击进入详情页组件 -->
 	<view class="index-list u-f animated fadeInLeft fast">
 		<view class="list-left">
 			<image class="head" :src="item.userHead" mode="widthFix" lazy-load></image>
@@ -8,10 +9,6 @@
 				<view class="left u-f-ac">
 					<view class="name">{{item.userName}}</view>
 					<tag-sex :sex="item.sex" :age="item.age"></tag-sex>
-<!-- 					<view class="icon-warp u-f-jsc-ac" :class="{'blue-icon':item.sex==='男','red-icon':item.sex==='女'}">
-						<view :class="{'sex':true,'icon iconfont icon-nan':item.sex==='男','icon iconfont icon-nv':item.sex==='女'}"></view>
-						{{item.age}}
-					</view> -->
 				</view>
 				<view class="right u-f-ac" v-show="!item.isGuanzhu">
 					<view class="follow" @tap="onFollow">
@@ -21,12 +18,17 @@
 					<view class="icon iconfont icon-guanbi1"></view>
 				</view>
 			</view>
+			<view class="row-time">
+				23天前
+			</view>
 			<view class="row-2" @click="openDetail">
 				{{item.title}}
 			</view>
 			<view class="row-3 u-f-jsc-ac" @click="openDetail">
 				<!-- 图片模式 -->
-				<image v-if="item.titlePic" class="content-img" :src="item.titlePic" mode="widthFix"></image>
+				<block v-for="(pic,index) in item.morePic" :key="index">
+					<image v-if="item.titlePic" class="content-img" :src="pic" mode="widthFix" @tap="imgDetail(index)"></image>
+				</block>
 				<!-- 视频模式 -->
  				<view class="video-warp u-f-jsc-ac" v-if="item.video">
 					<view class="video icon iconfont icon-iconset0481"></view>
@@ -56,14 +58,13 @@
 </template>
 
 <script>
-	import tagSex from './tagSex.vue'
+	import tagSex from '../common/tagSex.vue'
 	export default {
 		components:{
 			tagSex
 		},
 		props: {
 			item: Object,
-			index: Number
 		},
 		data() {
 			return {
@@ -71,6 +72,14 @@
 			}
 		},
 		methods: {
+			// 查看图片大图
+			imgDetail(index) {
+				// 预览图片
+				uni.previewImage({
+					current:index,
+					urls:this.item.morePic
+				})
+			},
 			// 关注
 			onFollow() {
 				this.item.isGuanzhu=true;
@@ -148,26 +157,6 @@
 		/* border: 1px solid #929292; */
 		margin-right: 20upx;
 	}
-/* 	.icon-warp{
-		width: 72rpx;
-		height: 32rpx;
-		line-height: 32rpx;
-		text-align: center;
-		border-radius: 25rpx;
-		margin-left: 20rpx;
-		color: #FFFFFF;
-		font-size: 12rpx;
-	}
-	.sex{
-		font-size: 6rpx;
-		margin-right: 5rpx;
-	}
-	.blue-icon{
-		background-color: #0A98D5;	
-	}
-	.red-icon{
-		background-color:#DD4A68;	
-	} */
 	.follow {
 		display: flex;
 		align-items: center;
@@ -179,14 +168,21 @@
 		margin-right: 15upx;
 		font-size: 20upx;
 	}
+	.row-time{
+		padding: 15rpx 0;
+		color: #CCCCCC;
+		font-size: 28rpx;
+	}
 	.row-2 {
 		font-size: 35upx;
-		padding-top: 15upx;
+		/* padding-top: 15upx; */
 	}
 
 	.row-3 {
 		padding-top: 15upx;
 		position: relative;
+		
+		flex-direction: column;
 	}
 /* 状态一 */
 	.video-warp {
@@ -218,6 +214,8 @@
 		width: 100%;
 		height: 400upx;
 		border-radius: 20upx;
+		
+		margin-bottom: 20rpx;
 	}
 	/* 状态二 */
 	.common-list-share{

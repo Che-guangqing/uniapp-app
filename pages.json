@@ -86,6 +86,7 @@
         ,{
             "path" : "pages/search/search",
 			"style": {
+				"enablePullDownRefresh":true, //开启下拉刷新
 				"app-plus": {
 					"scrollIndicator":"none",  //隐藏滚动条
 					"bounce":"none",  //取消回弹效果
@@ -133,11 +134,12 @@
         },{
             "path" : "pages/topicDetail/topicDetail",
             "style" : {
+				"navigationBarTitleText":"话题详情页",
 				"enablePullDownRefresh":true, // 开启下拉刷新
 				"app-plus":{
 					"scrollIndicator":"none", //不显示滚动条
 					"titleNView":{
-						"type":"transparent", // 透明渐变
+						"type":"transparent", // 透明渐变  App-nvue 2.4.4+ 支持
 						"buttons":[
 							{
 								"type":"menu"
@@ -175,6 +177,44 @@
 							"fontSize":"16px",
 							"text":"取消"
 						}]
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/userChat/userChat",
+            "style" : {
+				"app-plus":{
+					"titleNView":{
+						"navigationBarTitleText":"聊天页",
+						"buttons":[
+							{
+								// right
+								"color":"#000000",
+								"colorPressed":"#bbb",
+								"float":"right",
+								"fontSize":"22px",
+								"fontSrc":"/static/icon/iconfont.ttf",
+								"text":"\ue6a0"
+							}
+						]
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" : {
+				"navigationBarTitleText":"内容页",
+				"app-plus":{
+					"scrollIndicator":"none",  //隐藏滚动条
+					"bounce":"none", //取消回弹效果
+					"titleNView":{
+						"buttons":[
+							{
+								"type":"menu"
+							}
+						]
 					}
 				}
 			}

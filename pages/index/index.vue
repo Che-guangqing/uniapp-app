@@ -18,9 +18,6 @@
 						<!-- 无图文列表数据 显示的默认页 -->
 						<no-thing></no-thing>
 					</template>
-
-
-
 				</scroll-view>
 			</swiper-item>
 		</swiper>

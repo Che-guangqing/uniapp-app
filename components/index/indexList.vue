@@ -1,5 +1,5 @@
 <template>
-	<view class="index-list animated fadeInLeft fast">
+	<view class="index-list animated fadeInLeftBig">
 		<view class="row-1 u-f-jsb-ac">
 			<view class="left u-f-ac">
 				<image class="head" :src="item.userHead" mode="widthFix" lazy-load></image>
@@ -102,6 +102,9 @@
 			},
 			// 进入详情页
 			openDetail(){
+				uni.navigateTo({
+					url:'../../pages/detail/detail?detailData='+JSON.stringify(this.item)
+				})
 				console.log('进入详情页')
 			}
 		}

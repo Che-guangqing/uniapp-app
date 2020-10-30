@@ -1,6 +1,6 @@
 <template>
 	<!-- 封装消息列表组件 -->
-	<view class="paper-list u-f-ac animated fadeInUpBig">
+	<view class="paper-list u-f-ac animated fadeInUpBig" @tap="openChat">
 		<image :src="item.userPic" mode="widthFix" lazy-load></image>
 		<view class="paper-list-right">
 			<view class="u-f-jsb-ac">
@@ -26,6 +26,14 @@
 		},
 		components:{
 			uniBadge
+		},
+		methods:{
+			// 进入聊天页面
+			openChat() {
+				uni.navigateTo({
+					url:"../../pages/userChat/userChat"
+				})
+			}
 		}
 	}
 </script>
