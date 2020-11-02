@@ -19,3 +19,9 @@
 	.u-f-jsc-ac {
 		justify-content: center;
 	}
+	.u-f1{
+		flex: 1;
+	}
+	.u-f-column{
+		flex-direction: column;
+	}

@@ -7,3 +7,5 @@
 # 小纸条
 #### pages.json 顶部导航buttons不生效
 #### pages.json 聊天页面 ，第一次出现滚动时向上推送高度有bug
+# 我的
+#### userSetUserInfo修改图片 chooseImage方法在H5的问题

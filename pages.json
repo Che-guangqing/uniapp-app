@@ -81,7 +81,18 @@
 			}
         },{
             "path" : "pages/my/my",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"我的",
+				"app-plus":{
+					"scrollIndicator":"none",
+					"bounce":"none",
+					"titleNView":{
+						"buttons":[
+							{"type":"menu"}
+						]
+					}
+				}
+			}
         }
         ,{
             "path" : "pages/search/search",
@@ -216,6 +227,67 @@
 							}
 						]
 					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/userSet/userSet",
+            "style" : {
+				"navigationBarTitleText":"设置"
+			}
+        }
+        ,{
+            "path" : "pages/userSetRepassword/userSetRepassword",
+            "style" : {
+				"navigationBarTitleText":"修改密码",
+				"app-plus":{
+					"scrollIndicator":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/userSetEmail/userSetEmail",
+            "style" : {
+				"navigationBarTitleText":"绑定邮箱",
+				"app-plus":{
+					"scrollIndicator":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/userSetUserInfo/userSetUserInfo",
+            "style" : {
+				"navigationBarTitleText":"修改资料",
+				"app-plus":{
+					"scrollIndicator":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/userSetHelp/userSetHelp",
+            "style" : {
+				"navigationBarTitleText":"意见反馈",
+				"app-plus":{
+					"scrollIndicator":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/userSetAbout/userSetAbout",
+            "style" : {
+				"navigationBarTitleText":"关于我们",
+				"app-plus":{
+					"scrollIndicator":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"app-plus":{
+					"titleNView":false,
+					"bounce":"none",
+					"scrollIndicator":"none"
 				}
 			}
         }
