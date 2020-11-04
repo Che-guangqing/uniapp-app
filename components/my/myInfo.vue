@@ -1,6 +1,6 @@
 <template>
 	<!-- 已登录信息 -->
-	<view class="home-info u-f-ac">
+	<view class="home-info u-f-ac" @tap='toUserSpace'>
 		<image class="my-head" :src="homeInfo.userPic" mode="widthFix" lazy-load></image>
 		<view class="u-f1 info-middle">
 			<view>{{homeInfo.userName}}</view>
@@ -14,6 +14,13 @@
 	export default{
 		props:{
 			homeInfo:Object
+		},
+		methods:{
+			toUserSpace() {
+				uni.navigateTo({
+					url:'../../pages/userSpace/userSpace'
+				})
+			}
 		}
 	}
 </script>

@@ -46,7 +46,7 @@
 		},
 		data() {
 			return {
-				isLogin:false,
+				isLogin:true,
 				homeInfo:{ // 已登录信息
 					userPic:'../../static/img/head1.jpg',
 					userName:'名称',
