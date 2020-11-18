@@ -150,6 +150,7 @@
 			},
 			bindDateChange(e) {
 				this.birthday = e.target.value
+				console.log(e)
 			},
 			// 自定义 地区选择组件
 			change(data) {

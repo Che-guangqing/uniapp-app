@@ -37,7 +37,7 @@
 					},
 					{
 						name: '清除缓存',
-						clickType: '',
+						clickType: 'clear',
 						url: ''
 					},
 					{

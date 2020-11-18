@@ -1,4 +1,30 @@
 const gettime = {
+	// 计算星座
+	getHoroscope(date) {
+		let c = ['魔蝎','水瓶','双鱼','白羊','金牛','双子','巨蟹','狮子','处女','天秤','天蝎','射手','摩羯']
+		date = new Date(date)
+		let month = date.getMonth() + 1
+		let day = date.getDate()
+		let startMonth = month - (day - 14 < '865778999988' .charAt(month))
+		return c[startMonth] + '座'
+	},
+	// 计算指定时间与当前时间的时间差
+	sumAge(data) {
+		let dateBegin = new Date(data.replace(/-/g, "/"));
+		let dateEnd = new Date()
+		let dateDiff = dateEnd.getTime() - dateBegin.getTime();
+		let dayDiff = Math.floor(dateDiff / (24*3600*1000)) //相差天数
+		let leave1 =dateDiff%(24*3600*1000)//计算天数之后剩余毫秒数
+		let hours = Math.floor(leave1/(3600*1000)) //计算出小时数
+		// 计算相差分钟数
+		let leave2 = leave1%(3600*1000) //计算小时后剩余毫秒数
+		let minutes = Math.floor(leave2/(60*1000)) //相差分钟数
+		// 计算相差秒数
+		let leave3 = leave2%(60*1000) //计算分钟后剩余毫秒数
+		let seconds = Math.round(leave3/1000) 
+		return dayDiff+'天'+hours+'小时'
+	},
+	
     // 获取聊天时间
     getChatTime(v1, v2) {
         v1 = v1.toString().length < 13 ? v1 * 1000 : v1

@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<view @click="openeachat">打开图表</view>
 		<!-- 顶部选项卡 -->
 		<swiper-tab-head :tabBars="tabBars" :tabIndex="tabIndex" @tabTap='tabTap'></swiper-tab-head>
 		<!-- 每个顶部选项对应的数据 -->
@@ -201,6 +202,11 @@
 			}
 		},
 		methods: {
+			openeachat() {
+				uni.navigateTo({
+					url:'../uchart/uchart'
+				})
+			},
 			// 监听子组件中的tabTap事件
 			tabTap(index) {
 				this.tabIndex = index

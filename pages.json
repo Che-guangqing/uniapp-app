@@ -308,6 +308,15 @@
 				}
 			}
         }
+        ,{
+            "path" : "pages/uchart/uchart",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
